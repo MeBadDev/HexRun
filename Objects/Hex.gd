@@ -7,7 +7,8 @@ var delta_rotation :float= 0.0
 var threshold :float= 0.1
 var pass_score :float= 1
 
-
+func _init() -> void:
+	scale = Vector2(my_scale,my_scale)
 func _physics_process(delta):
 	#become scaller every frame
 	my_scale += delta_scale * delta
