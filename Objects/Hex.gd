@@ -8,14 +8,11 @@ var threshold :float= 0.1
 var pass_score :float= 1
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 func _physics_process(delta):
+	#become scaller every frame
 	my_scale += delta_scale * delta
 	scale = Vector2(my_scale, my_scale)
+	#rotate to make it harder
 	rotate(delta_rotation)
 	
 	if my_scale <= threshold:
@@ -24,5 +21,6 @@ func _physics_process(delta):
 
 func _on_Score_body_entered(body:Node):
 	if body.is_in_group("Player"):
+		#add score if player pass it
 		Score.score += pass_score
 		Score.refresh()

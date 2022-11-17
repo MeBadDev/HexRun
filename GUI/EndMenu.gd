@@ -3,21 +3,21 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	visible = false
+	hide()
 	var canvas_rid = get_canvas_item()
 	VisualServer.canvas_item_set_z_index(canvas_rid, 100)
-
+#restart game
 func _on_RestartButton_pressed():
-	get_tree().change_scene("res://World.tscn")
-	visible = false
-	Score.score = 0
-	Score.refresh()
+	hide()
+	Score.restart()
+	get_tree().reload_current_scene()
 
 
+#go to menu
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://GUI/MainMenu.tscn")
-	visible = false
+	hide()
 
-
+#quit
 func _on_QuitButton_pressed():
 	get_tree().quit()
