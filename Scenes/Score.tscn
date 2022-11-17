@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://GUI/Score.gd" type="Script" id=1]
-[ext_resource path="res://jf-openhuninn-1.1.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=1]
+[ext_resource path="res://Srcs/jf-openhuninn-1.1.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -13,9 +13,6 @@ anchor_top = -0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1, 0, 0, 1 )
