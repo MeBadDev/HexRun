@@ -5,6 +5,7 @@
 [ext_resource path="res://Scripts/HexSpawner.gd" type="Script" id=4]
 
 [node name="World" type="Node2D"]
+pause_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -18,4 +19,5 @@ autostart = true
 script = ExtResource( 4 )
 hex_scene = ExtResource( 2 )
 
+[connection signal="died" from="Player" to="HexSpawner" method="_on_Player_died"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]

@@ -10,7 +10,8 @@ func _ready():
 
 	#spawn a hex at the begining
 	#note: 20.0 and 20 is two different thing 
-	spawn_hex(rand_range(1,2))
+	spawn_hex(rand_range(-1,1),0.1)
+	
 func _on_HexSpawner_timeout():
 		spawn_hex(rand_range(-1,1),0.1)
 
@@ -24,3 +25,7 @@ func spawn_hex(delta_rotation:float,threshold = 0.1):
 
 	is_previous_invert = threshold <= 0
 	
+
+
+func _on_Player_died() -> void:
+	queue_free()

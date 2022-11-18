@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Srcs/square.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Srcs/jf-openhuninn-1.1.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -9,7 +10,159 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 9
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.415686, 0.415686, 0.415686, 0.682353 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("DeadScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DeadScreen:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( -3.4822, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -600 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("DeadScreen:custom_styles/panel:bg_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.415686, 0.415686, 0.415686, 0 ), Color( 0.678431, 0.678431, 0.678431, 0.682353 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Score:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DeadScreen:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("DeadScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DeadScreen:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -600 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("DeadScreen:custom_styles/panel:bg_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.415686, 0.415686, 0.415686, 0.682353 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Score:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DeadScreen:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ) ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -24,10 +177,81 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
+pause_mode = 2
 
 [node name="Score" type="Label" parent="GUI"]
-margin_right = 95.0
-margin_bottom = 26.0
+anchor_right = 1.0
+margin_top = 32.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 3 )
 text = "Score: 0"
+align = 1
+
+[node name="DeadScreen" type="Panel" parent="GUI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -600.0
+margin_right = 1024.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/DeadScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = 7.0
+margin_right = -36.0
+
+[node name="You Died!" type="Label" parent="GUI/DeadScreen/VBoxContainer"]
+margin_right = 942.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "You Dead!"
+align = 1
+
+[node name="DeadScore" type="Label" parent="GUI/DeadScreen/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 53.0
+margin_right = 942.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Score: %s"
+align = 1
+
+[node name="Space" type="Control" parent="GUI/DeadScreen/VBoxContainer"]
+margin_top = 90.0
+margin_right = 942.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="ButtonContainer" type="VBoxContainer" parent="GUI/DeadScreen/VBoxContainer"]
+margin_top = 144.0
+margin_right = 942.0
+margin_bottom = 593.0
+size_flags_vertical = 3
+custom_constants/separation = 27
+
+[node name="Retry" type="Button" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer"]
+margin_right = 942.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+custom_fonts/font = SubResource( 7 )
+text = "Retry"
+
+[node name="Menu" type="Button" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer"]
+margin_top = 97.0
+margin_right = 942.0
+margin_bottom = 167.0
+rect_min_size = Vector2( 0, 70 )
+custom_fonts/font = SubResource( 7 )
+text = "Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI"]
+pause_mode = 2
+autoplay = "RESET"
+anims/Die = SubResource( 8 )
+anims/RESET = SubResource( 9 )
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
