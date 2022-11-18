@@ -20,7 +20,6 @@ func spawn_hex(delta_rotation:float,threshold = 0.1):
 	hex.rotation_degrees = randi() % 360
 	hex.threshold = threshold
 	get_tree().current_scene.call_deferred('add_child',hex)
-	print(delta_rotation)
 	hex.delta_rotation = delta_rotation
 
 	is_previous_invert = threshold <= 0

@@ -7,6 +7,7 @@
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
+glow_levels/5 = false
 glow_blend_mode = 0
 glow_hdr_threshold = 0.96
 glow_hdr_luminance_cap = 29.77
@@ -36,6 +37,13 @@ color = Color( 0.164706, 0.164706, 0.164706, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="Border" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+build_mode = 1
+polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 600, 0, 600 )
 
 [connection signal="died" from="Player" to="HexSpawner" method="_on_Player_died"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]

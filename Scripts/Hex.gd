@@ -30,4 +30,7 @@ func _physics_process(delta):
 
 func _on_Score_body_entered(body:Node):
 	if body.is_in_group("Player"):
+		#delete Score Area2D after player got the score,
+		#so player won't get score multiple times
+		$Score.queue_free()
 		body.score += pass_score
