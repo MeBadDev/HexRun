@@ -1,42 +1,26 @@
 extends Timer
 
-
-var hex_scene = preload("res://Objects/Hex.tscn")
+#for some reason we can't preload here so i use load
+export(PackedScene) var hex_scene
 var rng = RandomNumberGenerator.new()
 var is_previous_invert :bool = false
 
 func _ready():
-	spawn_hex(0)
+	randomize()
 
+	#spawn a hex at the begining
+	#note: 20.0 and 20 is two different thing 
+	spawn_hex(rand_range(1,2))
 func _on_HexSpawner_timeout():
-	#i don't know what does this do so i'll keep it
-	var r = rng.randi_range(0, 9)
-	if !is_previous_invert:
-		if Score.score <= 10:
-			spawn_hex(0)
-		elif Score.score <= 20:
-			spawn_hex(0.005)
-		elif Score.score <= 30:
-			if r <= 5:
-				spawn_hex(0, -2)
-			else:
-				spawn_hex(0.005)
-		else:
-			if r <= 5:
-				spawn_hex(0.005, -2)
-			else:
-				spawn_hex(0.005, -2)
-	else:
-		is_previous_invert = false
+		spawn_hex(rand_range(-1,1),0.1)
 
-func spawn_hex(delta_rotation,threshold = 0.1):
+func spawn_hex(delta_rotation:float,threshold = 0.1):
 	var hex = hex_scene.instance()
-	hex.rotation = randi()
-	hex.delta_rotation = delta_rotation
+	hex.rotation_degrees = randi() % 360
 	hex.threshold = threshold
 	get_tree().current_scene.call_deferred('add_child',hex)
-	if threshold <= 0:
-		is_previous_invert = true
-	else:
-		is_previous_invert = false
+	print(delta_rotation)
+	hex.delta_rotation = delta_rotation
+
+	is_previous_invert = threshold <= 0
 	

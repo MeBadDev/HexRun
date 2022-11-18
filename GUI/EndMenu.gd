@@ -14,7 +14,7 @@ func _on_RestartButton_pressed():
 
 #go to menu
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://GUI/MainMenu.tscn")
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 	hide()
 
 #quit

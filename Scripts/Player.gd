@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var speed = 200
-
+var score := 0 setget _score_changed
 	
 func _physics_process(delta):
 	move()
@@ -16,3 +16,7 @@ func _on_HitBox_body_entered(body:Node):
 	if body.is_in_group("Hex"):
 		queue_free()
 		EndMenu.show()
+
+func _score_changed(new_score:int):
+	$GUI/Score.text = 'Score: %s' % new_score
+	score = new_score
