@@ -5,7 +5,7 @@ master是教學的版本，這是我魔改後的版本
 
 魔改前
 (來自[收音機](https://www.youtube.com/@radio0529))
-[魔改前](GithubSrcs/GameBefore.png)
+![魔改前](GithubSrcs/GameBefore.png)
 
 魔改後
-[魔改後](GithubSrcs/GameAfter.png)
+![魔改後](GithubSrcs/GameAfter.png)
