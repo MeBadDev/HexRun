@@ -9,6 +9,7 @@ extents = Vector2( 50, 5 )
 extents = Vector2( 50, 5 )
 
 [node name="Hex" type="StaticBody2D" groups=["Hex"]]
+modulate = Color( 1.1, 1.1, 1.1, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

@@ -27,8 +27,18 @@ func _die():
 	get_tree().paused = true
 	emit_signal('died')
 	$GUI/AnimationPlayer.play('Die')
-	var t := create_tween()
+	var t := create_tween().set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
 	t.tween_method(self,'_change_score_text',0,score,0.2)
 
 func _change_score_text(new_score:int):
 	$"%DeadScore".text = "Score: %s" % new_score
+
+
+
+func _on_Menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene('res://Scenes/MainMenu.tscn')
+
+func _on_Retry_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()

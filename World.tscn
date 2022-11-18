@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hex.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/HexSpawner.gd" type="Script" id=4]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.02
+glow_blend_mode = 0
+glow_hdr_threshold = 0.96
+glow_hdr_luminance_cap = 29.77
 
 [node name="World" type="Node2D"]
 pause_mode = 1
@@ -18,6 +26,17 @@ wait_time = 3.0
 autostart = true
 script = ExtResource( 4 )
 hex_scene = ExtResource( 2 )
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="BackGroundColor" type="ColorRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.164706, 0.164706, 0.164706, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
 
 [connection signal="died" from="Player" to="HexSpawner" method="_on_Player_died"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]
