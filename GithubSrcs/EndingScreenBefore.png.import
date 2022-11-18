@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EndingScreenBefore.png-432ae20de3eb74536c1b0e6403973d66.stex"
+path="res://.import/EndingScreenBefore.png-8c403495a7e02b710dfa48a21e438d04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://github srcs/EndingScreenBefore.png"
-dest_files=[ "res://.import/EndingScreenBefore.png-432ae20de3eb74536c1b0e6403973d66.stex" ]
+source_file="res://GithubSrcs/EndingScreenBefore.png"
+dest_files=[ "res://.import/EndingScreenBefore.png-8c403495a7e02b710dfa48a21e438d04.stex" ]
 
 [params]
 

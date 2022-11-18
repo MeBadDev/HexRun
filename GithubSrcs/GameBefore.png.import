@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GameBefore.png-f55d49e26b3590a7e3859a9c76d02f8e.stex"
+path="res://.import/GameBefore.png-f36c6cda0b4410bbc60922156b5df68d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://github srcs/GameBefore.png"
-dest_files=[ "res://.import/GameBefore.png-f55d49e26b3590a7e3859a9c76d02f8e.stex" ]
+source_file="res://GithubSrcs/GameBefore.png"
+dest_files=[ "res://.import/GameBefore.png-f36c6cda0b4410bbc60922156b5df68d.stex" ]
 
 [params]
 

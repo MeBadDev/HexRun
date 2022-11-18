@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GameAfter.png-c66cea711521f90439e37e022630b60d.stex"
+path="res://.import/TitleScreenBefore.png-f727ea9b100f2affd7ff84f9759d9fe2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GithubSrcs/GameAfter.png"
-dest_files=[ "res://.import/GameAfter.png-c66cea711521f90439e37e022630b60d.stex" ]
+source_file="res://GithubSrcs/TitleScreenBefore.png"
+dest_files=[ "res://.import/TitleScreenBefore.png-f727ea9b100f2affd7ff84f9759d9fe2.stex" ]
 
 [params]
 

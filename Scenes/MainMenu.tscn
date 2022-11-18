@@ -1,12 +1,78 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Srcs/Title.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.00645161, 0.148387, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.890852 ), 0.0, 0.0, 0, 0, Vector2( 0.735955, 0.527216 ), -1.44785, -1.44785, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+width = 50
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 512, 300, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 366.34
+initial_velocity_random = 1.0
+angular_velocity = 99.8
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.81
+radial_accel = 27.72
+tangential_accel = 100.0
+angle = 128.3
+angle_random = 0.93
+scale = 0.5
+scale_random = 0.58
+scale_curve = SubResource( 8 )
+color = Color( 0.584314, 0.584314, 0.584314, 1 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Hex")
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="Hex" type="Viewport" parent="."]
+size = Vector2( 200, 200 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 0
+
+[node name="Line2D" type="Line2D" parent="Hex"]
+position = Vector2( 100, 100 )
+points = PoolVector2Array( 50, 86.6, 100, 0, 50, -86.6, -50, -86.6, -100, 0, -50, 86.6 )
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.121569, 0.121569, 0.121569, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 507, 289 )
+amount = 32
+lifetime = 4.0
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = SubResource( 4 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
