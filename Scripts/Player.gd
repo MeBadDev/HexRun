@@ -1,12 +1,12 @@
 extends KinematicBody2D
 signal died
+export(AudioStream) var die_audio
 var speed = 200
 var score := 0 setget _score_changed
 var can_move := true
+
 func _physics_process(delta):
 	move()
-
-
 
 #move
 func move():
@@ -25,6 +25,7 @@ func _score_changed(new_score:int):
 
 
 func _die():
+	AudioManager.play(die_audio)
 	$"%HighScore".text = "HIGH: %s" % HighScore.highscore
 	if score > HighScore.highscore:
 		HighScore.save_highscore(score)

@@ -40,6 +40,7 @@ color = Color( 0.164706, 0.164706, 0.164706, 1 )
 environment = SubResource( 1 )
 
 [node name="Border" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2( -512, -300 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]

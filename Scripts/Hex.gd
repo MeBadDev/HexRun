@@ -1,4 +1,5 @@
 extends StaticBody2D
+export(AudioStream) var clear_audio
 
 #scale
 var my_scale :float= 6
@@ -33,4 +34,5 @@ func _on_Score_body_entered(body:Node):
 		#delete Score Area2D after player got the score,
 		#so player won't get score multiple times
 		$Score.queue_free()
+		AudioManager.play(clear_audio)
 		body.score += pass_score
