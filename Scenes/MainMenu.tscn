@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Srcs/Title.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
@@ -49,6 +49,31 @@ size = 110
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.411765, 0.411765, 0.411765, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.486275, 0.486275, 0.486275, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.32549, 0.32549, 0.32549, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -107,6 +132,10 @@ margin_top = 154.0
 margin_right = 438.0
 margin_bottom = 194.0
 rect_min_size = Vector2( 80, 40 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 11 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -117,6 +146,10 @@ margin_top = 198.0
 margin_right = 438.0
 margin_bottom = 238.0
 rect_min_size = Vector2( 80, 40 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 11 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false

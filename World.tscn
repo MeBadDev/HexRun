@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hex.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Srcs/Game.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/HexSpawner.gd" type="Script" id=4]
 
 [sub_resource type="Environment" id=1]
@@ -39,11 +40,15 @@ color = Color( 0.164706, 0.164706, 0.164706, 1 )
 environment = SubResource( 1 )
 
 [node name="Border" type="StaticBody2D" parent="."]
-visible = false
+position = Vector2( -512, -300 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
 build_mode = 1
 polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 600, 0, 600 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [connection signal="died" from="Player" to="HexSpawner" method="_on_Player_died"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]

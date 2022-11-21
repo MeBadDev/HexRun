@@ -6,6 +6,8 @@ var can_move := true
 func _physics_process(delta):
 	move()
 
+
+
 #move
 func move():
 	if can_move:
@@ -23,6 +25,10 @@ func _score_changed(new_score:int):
 
 
 func _die():
+	$"%HighScore".text = "HIGH: %s" % HighScore.highscore
+	if score > HighScore.highscore:
+		HighScore.save_highscore(score)
+		HighScore.highscore = HighScore.load_highscore()
 	can_move = false
 	get_tree().paused = true
 	emit_signal('died')
