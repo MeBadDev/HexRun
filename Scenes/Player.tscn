@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Srcs/jf-openhuninn-1.1.ttf" type="DynamicFontData" id=3]
@@ -62,6 +62,10 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=15]
+size = 24
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "Die"
@@ -222,17 +226,11 @@ margin_right = 1024.0
 custom_styles/panel = SubResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/DeadScreen"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -1021.0
-margin_top = -242.0
-margin_right = 1021.0
-margin_bottom = 242.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="You Died!" type="Label" parent="GUI/DeadScreen/VBoxContainer"]
-margin_right = 2042.0
+margin_right = 2048.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 5 )
@@ -242,7 +240,7 @@ align = 1
 [node name="DeadScore" type="Label" parent="GUI/DeadScreen/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 53.0
-margin_right = 2042.0
+margin_right = 2048.0
 margin_bottom = 86.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
@@ -252,7 +250,7 @@ align = 1
 [node name="HighScore" type="Label" parent="GUI/DeadScreen/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 90.0
-margin_right = 2042.0
+margin_right = 2048.0
 margin_bottom = 115.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 14 )
@@ -261,20 +259,20 @@ align = 1
 
 [node name="Space" type="Control" parent="GUI/DeadScreen/VBoxContainer"]
 margin_top = 119.0
-margin_right = 2042.0
+margin_right = 2048.0
 margin_bottom = 169.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI/DeadScreen/VBoxContainer"]
 margin_top = 173.0
-margin_right = 2042.0
-margin_bottom = 484.0
+margin_right = 2048.0
+margin_bottom = 1200.0
 size_flags_vertical = 3
 custom_constants/separation = 27
 
 [node name="Retry" type="Button" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer"]
-margin_right = 2042.0
-margin_bottom = 40.0
+margin_right = 2048.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 10 )
 custom_styles/hover = SubResource( 11 )
@@ -286,9 +284,9 @@ __meta__ = {
 }
 
 [node name="Menu" type="Button" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer"]
-margin_top = 67.0
-margin_right = 2042.0
-margin_bottom = 107.0
+margin_top = 87.0
+margin_right = 2048.0
+margin_bottom = 147.0
 rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 10 )
 custom_styles/hover = SubResource( 11 )
@@ -299,9 +297,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CenterContainer" type="CenterContainer" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer"]
+margin_top = 174.0
+margin_right = 2048.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer"]
+margin_left = 691.0
+margin_top = 48.0
+margin_right = 1357.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="LineEdit" type="LineEdit" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer"]
+margin_right = 666.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 600, 40 )
+custom_fonts/font = SubResource( 15 )
+align = 1
+placeholder_text = "Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 666.0
+margin_bottom = 104.0
+
+[node name="Submit" type="Button" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 410.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+text = "SUBMIT SCORE TO LEADERBOARD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="View" type="Button" parent="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 414.0
+margin_right = 666.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+text = "VIEW LEADERBOARD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI"]
 pause_mode = 2
 autoplay = "RESET"
+method_call_mode = 1
 anims/Die = SubResource( 8 )
 anims/RESET = SubResource( 9 )
 
@@ -322,3 +374,5 @@ margin_bottom = 8.0
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="pressed" from="GUI/DeadScreen/VBoxContainer/ButtonContainer/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="GUI/DeadScreen/VBoxContainer/ButtonContainer/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer/Submit" to="." method="_on_Submit_pressed"]
+[connection signal="pressed" from="GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer/View" to="." method="_on_View_pressed"]

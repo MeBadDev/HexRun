@@ -2,8 +2,6 @@ extends Node
 const SAVE_PATH = "user://data.dat"
 
 var highscore := load_highscore()
-func _ready() -> void:
-    print(highscore)
 func save_highscore(highscore:int):
     var f := File.new()
     f.open(SAVE_PATH,File.WRITE)

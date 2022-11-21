@@ -8,13 +8,13 @@
 offsets = PoolRealArray( 0.00645161, 0.148387, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=14]
 gradient = SubResource( 5 )
 
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0.890852 ), 0.0, 0.0, 0, 0, Vector2( 0.735955, 0.527216 ), -1.44785, -1.44785, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
+[sub_resource type="CurveTexture" id=15]
 width = 50
 curve = SubResource( 7 )
 
@@ -37,9 +37,9 @@ angle = 128.3
 angle_random = 0.93
 scale = 0.5
 scale_random = 0.58
-scale_curve = SubResource( 8 )
+scale_curve = SubResource( 15 )
 color = Color( 0.584314, 0.584314, 0.584314, 1 )
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 14 )
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("Hex")
@@ -112,9 +112,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 293.0
-margin_top = 181.0
+margin_top = 159.0
 margin_right = 731.0
-margin_bottom = 419.0
+margin_bottom = 441.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,10 +141,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="LeaderboardButton" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 198.0
 margin_right = 438.0
 margin_bottom = 238.0
+rect_min_size = Vector2( 80, 40 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 11 )
+text = "Leaderboard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 242.0
+margin_right = 438.0
+margin_bottom = 282.0
 rect_min_size = Vector2( 80, 40 )
 custom_fonts/font = SubResource( 10 )
 custom_styles/hover = SubResource( 12 )
@@ -160,4 +174,5 @@ stream = ExtResource( 1 )
 autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

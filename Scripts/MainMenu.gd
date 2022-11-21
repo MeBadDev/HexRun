@@ -7,3 +7,7 @@ func _on_PlayButton_pressed():
 #quit the game
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+
+func _on_LeaderboardButton_pressed() -> void:
+	get_tree().change_scene('res://Scenes/Leaderboard.tscn')

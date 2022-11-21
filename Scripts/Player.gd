@@ -49,3 +49,14 @@ func _on_Menu_pressed() -> void:
 func _on_Retry_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+
+func _on_View_pressed() -> void:
+	get_tree().change_scene("res://Scenes/Leaderboard.tscn")
+
+func _on_Submit_pressed() -> void:
+	$GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer/Submit.text = 'Processing...'
+	$GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer/Submit.disabled = true
+	yield(GotmScore.create('Score',score,{'user':$GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/LineEdit.text}),'completed')
+	$GUI/DeadScreen/VBoxContainer/ButtonContainer/CenterContainer/VBoxContainer/HBoxContainer/Submit.text = 'Score Submitted!!'

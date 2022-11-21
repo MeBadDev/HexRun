@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hex.tscn" type="PackedScene" id=2]
@@ -13,8 +13,55 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.96
 glow_hdr_luminance_cap = 29.77
 
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.16129, 0.703226, 0.870968 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 50
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.618485 ), 0.0, 0.0, 0, 0, Vector2( 0.314607, 0.675265 ), 0.0, 0.0, 0, 0, Vector2( 0.601124, 0.482121 ), 0.0, 1.07879, 0, 0, Vector2( 0.994382, 0.191212 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+width = 50
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 512, 300, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 500.0
+angular_velocity = 171.09
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 43.56
+linear_accel_random = 1.0
+radial_accel = 35.64
+scale = 30.0
+scale_random = 0.46
+scale_curve = SubResource( 6 )
+color = Color( 1, 1, 1, 0.454902 )
+color_ramp = SubResource( 4 )
+
 [node name="World" type="Node2D"]
 pause_mode = 1
+
+[node name="Hex" type="Viewport" parent="."]
+size = Vector2( 200, 200 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 0
+
+[node name="Line2D" type="Line2D" parent="Hex"]
+position = Vector2( 100, 100 )
+points = PoolVector2Array( 50, 86.6, 100, 0, 50, -86.6, -50, -86.6, -100, 0, -50, 86.6 )
+default_color = Color( 1, 1, 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -50,6 +97,12 @@ polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 600, 0, 600 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.509804 )
+amount = 30
+lifetime = 5.0
+process_material = SubResource( 2 )
 
 [connection signal="died" from="Player" to="HexSpawner" method="_on_Player_died"]
 [connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_HexSpawner_timeout"]
