@@ -8,7 +8,7 @@ func _ready():
 	randomize()
 	#set to top level so it will be ontop on everything
 	var canvas_rid = get_canvas_item()
-	VisualServer.canvas_item_set_z_index(canvas_rid, 100)
+	RenderingServer.canvas_item_set_z_index(canvas_rid, 100)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_home"):

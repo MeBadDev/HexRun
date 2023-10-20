@@ -3,10 +3,10 @@
 [ext_resource path="res://Objects/Hex.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50, 5 )
+size = Vector2( 50, 5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 50, 5 )
+size = Vector2( 50, 5 )
 
 [node name="Hex" type="StaticBody2D" groups=["Hex"]]
 script = ExtResource( 1 )
@@ -15,7 +15,7 @@ __meta__ = {
 }
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( 50, 86.6, 100, 0, 50, -86.6, -50, -86.6, -100, 0, -50, 86.6 )
+points = PackedVector2Array( 50, 86.6, 100, 0, 50, -86.6, -50, -86.6, -100, 0, -50, 86.6 )
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

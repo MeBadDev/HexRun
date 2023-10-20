@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	hide()
 	var canvas_rid = get_canvas_item()
-	VisualServer.canvas_item_set_z_index(canvas_rid, 100)
+	RenderingServer.canvas_item_set_z_index(canvas_rid, 100)
 #restart game
 func _on_RestartButton_pressed():
 	hide()
@@ -15,7 +15,7 @@ func _on_RestartButton_pressed():
 
 #go to menu
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://GUI/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://GUI/MainMenu.tscn")
 	hide()
 
 #quit
